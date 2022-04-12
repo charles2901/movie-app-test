@@ -6,7 +6,7 @@ class Movie {
   final String? backdropPath;
   final String? tagline;
   final String? website;
-  final List<String>? productionCompanies;
+  final List<dynamic>? productionCompanies;
 
   const Movie({
     required this.id,

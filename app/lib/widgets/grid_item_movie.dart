@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../views/movie_detail_screen.dart';
 
 import '../models/movie.dart';
 
@@ -15,11 +18,23 @@ class GridItemMovie extends StatelessWidget {
         children: [
           Expanded(
             child: movie.posterPath != null
-                ? FadeInImage(
-                    placeholder:
-                        const AssetImage('assets/images/movie-placeholder.png'),
-                    image: NetworkImage(movie.posterPath.toString()),
-                    fit: BoxFit.cover,
+                ? GestureDetector(
+                    onTap: () {
+                      FocusScope.of(context).unfocus();
+                      Get.toNamed(
+                        MovieDetailScreen.routeName,
+                        arguments: movie,
+                      );
+                    },
+                    child: Hero(
+                      tag: movie.id,
+                      child: FadeInImage(
+                        placeholder: const AssetImage(
+                            'assets/images/movie-placeholder.png'),
+                        image: NetworkImage(movie.posterPath.toString()),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   )
                 : const Center(
                     child: Text('Poster not found'),
