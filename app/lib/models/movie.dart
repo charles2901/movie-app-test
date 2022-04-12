@@ -1,9 +1,9 @@
 class Movie {
   final String id;
   final String title;
-  final int year;
-  final String posterPath;
-  final String backdropPath;
+  final String year;
+  final String? posterPath;
+  final String? backdropPath;
   final String? tagline;
   final String? website;
   final List<String>? productionCompanies;
