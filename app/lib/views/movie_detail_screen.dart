@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 import '../controllers/detail_controller.dart';
 
+import '../views/movie_gallery_screen.dart';
+
 import '../models/movie.dart';
 
 import '../widgets/content_detail.dart';
@@ -15,6 +17,9 @@ class MovieDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceSize = MediaQuery.of(context).size;
+    const radiusContainer = 30.0;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -50,8 +55,8 @@ class MovieDetailScreen extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.55,
-                  width: MediaQuery.of(context).size.width - 30,
+                  height: deviceSize.height * 0.55,
+                  width: deviceSize.width - 30,
                   margin: const EdgeInsets.symmetric(horizontal: 15),
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.fromLTRB(25, 35, 25, 0),
@@ -69,17 +74,20 @@ class MovieDetailScreen extends StatelessWidget {
           ),
           Positioned(
             right: 40,
-            bottom: MediaQuery.of(context).size.height * 0.55 - 25,
+            bottom: deviceSize.height * 0.55 - radiusContainer,
             child: Container(
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(radiusContainer),
               ),
               child: IconButton(
                 icon: const Icon(Icons.photo_library_outlined),
                 color: Colors.white,
-                onPressed: () => Get.back(),
+                onPressed: () => Get.toNamed(
+                  MovieGalleryScreen.routeName,
+                  arguments: movie.id,
+                ),
                 iconSize: 25,
               ),
             ),

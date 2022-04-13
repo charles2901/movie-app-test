@@ -1,10 +1,8 @@
-import 'package:get/get.dart';
-
 import '../services/movie_service.dart';
 
 import '../models/movie.dart';
 
-class MovieDetailController extends GetxController {
+class MovieDetailController {
   Movie? movie;
 
   Future<void> fetchDetailMovie(int id) async {

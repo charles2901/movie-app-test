@@ -71,7 +71,10 @@ class _MovieOverviewScreenState extends State<MovieOverviewScreen> {
                 ),
               ),
               textInputAction: TextInputAction.done,
-              onEditingComplete: () => _controller.searchMoviesByTitle(),
+              onEditingComplete: () {
+                FocusScope.of(context).unfocus();
+                _controller.searchMoviesByTitle();
+              },
               onChanged: (_) => _controller.handleChangeInput(),
             ),
           ),

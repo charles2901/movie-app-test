@@ -25,7 +25,6 @@ class MovieController extends GetxController {
 
   void handleChangeInput() {
     if (searchInput.value.text.isEmpty) {
-      fetchPopularMovie();
       return;
     }
 
