@@ -12,7 +12,7 @@ class FullImageScreen extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         child: Hero(
-          tag: id,
+          tag: path,
           child: SizedBox(
             width: double.infinity,
             height: double.infinity,

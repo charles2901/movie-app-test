@@ -22,7 +22,6 @@ class MovieService {
   }
 
   static Future getMovieDetail(int id) async {
-    print(id);
     final url = Uri.parse('$baseUrl/movie/$id?api_key=$apiKey&language=en-US');
 
     final response = await http.get(url);

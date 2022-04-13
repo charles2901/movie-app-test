@@ -35,7 +35,7 @@ class _MovieGalleryScreenState extends State<MovieGalleryScreen> {
             ),
           ),
           child: Hero(
-            tag: id,
+            tag: items[idx],
             child: FadeInImage(
               placeholder:
                   const AssetImage('assets/images/movie-placeholder.png'),

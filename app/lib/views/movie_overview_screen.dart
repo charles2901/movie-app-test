@@ -6,6 +6,8 @@ import '../controllers/movie_controller.dart';
 import '../widgets/grid_item_movie.dart';
 
 class MovieOverviewScreen extends StatefulWidget {
+  static const routeName = '/movie-overview';
+
   @override
   State<MovieOverviewScreen> createState() => _MovieOverviewScreenState();
 }
