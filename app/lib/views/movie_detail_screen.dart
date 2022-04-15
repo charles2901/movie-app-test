@@ -36,7 +36,7 @@ class MovieDetailScreen extends StatelessWidget {
           ),
           Positioned(
             left: 12,
-            top: 25,
+            top: MediaQuery.of(context).viewPadding.top + 12,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.black45,

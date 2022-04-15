@@ -71,6 +71,10 @@ class _MovieOverviewScreenState extends State<MovieOverviewScreen> {
                   ),
                   onPressed: () => _controller.clearInput(),
                 ),
+                hintStyle: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 17,
+                ),
               ),
               textInputAction: TextInputAction.done,
               onEditingComplete: () {

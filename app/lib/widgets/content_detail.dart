@@ -61,18 +61,18 @@ class ContentDetail extends StatelessWidget {
                           children: [
                             _buildRowTwo(
                                 Icons.calendar_month,
-                                movie.year.isEmpty ? 'TBD' : movie.year,
+                                movie.year.isEmpty ? 'TBD..' : movie.year,
                                 context),
                             _buildRowTwo(
                                 Icons.contact_support,
                                 controller.movie!.website.toString().isEmpty
-                                    ? 'Coming soon...'
+                                    ? 'Coming soon..'
                                     : controller.movie!.website.toString(),
                                 context),
                             _buildRowTwo(
                                 Icons.home,
                                 controller.movie!.productionCompanies!.isEmpty
-                                    ? 'Soon...'
+                                    ? 'Updated soon...'
                                     : controller.movie!.productionCompanies!
                                         .join(', '),
                                 context),

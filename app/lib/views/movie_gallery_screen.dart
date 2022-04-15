@@ -17,35 +17,39 @@ class _MovieGalleryScreenState extends State<MovieGalleryScreen> {
   final GalleryController _controller = GalleryController();
 
   _buildGridView(items) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 1 / 1.8,
-      ),
-      itemCount: items.length,
-      itemBuilder: (ctx, idx) {
-        return GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (ctx) => FullImageScreen(id, items[idx]),
+    return items.length == 0
+        ? const Center(
+            child: Text('Images are not available'),
+          )
+        : GridView.builder(
+            padding: const EdgeInsets.all(10),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: 1 / 1.8,
             ),
-          ),
-          child: Hero(
-            tag: items[idx],
-            child: FadeInImage(
-              placeholder:
-                  const AssetImage('assets/images/movie-placeholder.png'),
-              image: NetworkImage(items[idx]),
-              fit: BoxFit.cover,
-            ),
-          ),
-        );
-      },
-    );
+            itemCount: items.length,
+            itemBuilder: (ctx, idx) {
+              return GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => FullImageScreen(id, items[idx]),
+                  ),
+                ),
+                child: Hero(
+                  tag: items[idx],
+                  child: FadeInImage(
+                    placeholder:
+                        const AssetImage('assets/images/movie-placeholder.png'),
+                    image: NetworkImage(items[idx]),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            },
+          );
   }
 
   @override
